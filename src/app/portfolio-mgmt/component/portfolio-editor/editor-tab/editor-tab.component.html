@@ -1,0 +1,46 @@
+<p-tabView class="w-full h-fit">
+    <p-tabPanel header="Header 1">
+        <ng-template pTemplate="header"><button pButton (click)="handleCurrentTabChange(0)"
+                [class]="checkCurrentTab(0)"><i class="pi pi-folder"></i>Medical</button></ng-template>
+        <!-- Insert medical details component here -->
+        <app-accumulators />
+        <p-accordion>
+            <p-accordionTab header="Medical Benefits">
+                @for( title of benefitCategoryTitles; track title ){ <app-benefit-category
+                    [benefitCategoryTitle]="title" />}
+            </p-accordionTab>
+        </p-accordion>
+    </p-tabPanel>
+    <p-tabPanel header="Header 2">
+        <ng-template pTemplate="header"><button pButton (click)="handleCurrentTabChange(1)"
+                [class]="checkCurrentTab(1)"><i class="pi pi-book"></i>Pharmacy</button></ng-template>
+        <!-- Insert Pharmacy componenet here -->
+        <app-accumulators [isMedical]="false" />
+        <p-accordion>
+            <p-accordionTab header="Pharmacy Benefits">
+        @for( title of benefitCategoryTitles; track title ){ <app-benefit-category [benefitCategoryTitle]="title" />}
+            </p-accordionTab>
+        </p-accordion>
+
+    </p-tabPanel>
+    <p-tabPanel header="Header 3" [disabled]="true">
+        <ng-template pTemplate="header"><button pButton [disabled]="true" [class]="checkCurrentTab(2)"><i
+                    class="pi pi-folder-plus"></i>Riders</button></ng-template>
+        <!-- Insert Riders component here -->
+    </p-tabPanel>
+    <p-tabPanel header="Header 4" [disabled]="true">
+        <ng-template pTemplate="header"><button pButton [disabled]="true" [class]="checkCurrentTab(3)"><i
+                    class="pi pi-file"></i>Member Group Details</button></ng-template>
+        <!-- Insert Member Group Details component here -->
+    </p-tabPanel>
+    <p-tabPanel header="Header 5" [disabled]="true">
+        <ng-template pTemplate="header"><button pButton [disabled]="true" [class]="checkCurrentTab(4)"><i
+                    class="pi pi-comments"></i>Comments</button></ng-template>
+        <!-- Insert Comments and changelogs component here -->
+    </p-tabPanel>
+    <p-tabPanel header="Header 6" [disabled]="true">
+        <ng-template pTemplate="header"><button pButton [disabled]="true" [class]="checkCurrentTab(5)"><i
+                    class="pi pi-history"></i>Change Logs</button></ng-template>
+        <!-- Insert Comments and changelogs component here -->
+    </p-tabPanel>
+</p-tabView>

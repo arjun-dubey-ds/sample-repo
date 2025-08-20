@@ -1,0 +1,28 @@
+/* Button toggle styles */
+.p-button-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.p-button-outlined {
+  background-color: transparent !important;
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Ensure button transitions are visible */
+.p-button {
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Additional specificity for button states */
+button[pButton].p-button-primary {
+  background: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+}
+
+button[pButton].p-button-outlined {
+  background: transparent !important;
+  border: 1px solid var(--primary-color) !important;
+}

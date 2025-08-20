@@ -1,0 +1,8 @@
+/* Minimal subset to match Angular theme primary color and font */
+:root {
+  --primary-color: #002677;
+  --text-color: #4b5563;
+}
+body { color: var(--text-color); }
+
+

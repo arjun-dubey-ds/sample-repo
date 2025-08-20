@@ -1,0 +1,20 @@
+<form class="form-bg flex flex-column align-items-center justify-content-start gap-2 w-27rem m-3 h-fit">
+    <div class="w-full p-3 flex flex-column gap-2">
+    <button pButton [outlined]="true" class="w-full p-button-flex gap-2"><i class="pi pi-save"></i>  Save</button>
+    <button pButton [outlined]="true" severity="secondary" class="w-full" label="Close" (click)="redirectToHome()"></button>
+    </div>
+    
+    <p-divider class="w-full"></p-divider>
+
+    <div class="bg-custom w-full text-center p-2">  
+        <span class="text-xl font-medium">Plan Details</span>
+    </div>
+    <div class="w-full p-3 flex flex-column gap-2">
+        @for(control of formControls; track control) {
+            <div class="flex flex-column gap-2 w-full">
+                <label for="username">{{control['label']}}</label>
+                <input pInputText />
+            </div>
+        }
+    </div>
+</form>

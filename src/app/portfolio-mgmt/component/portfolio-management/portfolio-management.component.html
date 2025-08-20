@@ -1,0 +1,107 @@
+<div>
+  <p-tabView>
+    <p-tabPanel header="Portfolio Management" [selected]="true">
+      <h1>Portfolio Management</h1>
+      <div class="p-card p-3 m-5">
+
+        <div class="p-card-body">
+          <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+            <div class="grid">
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <input id="planCode" type="text" pInputText formControlName="planCode" class="w-full" />
+                  <label for="planCode">Plan Code</label>
+                </div>
+              </div>
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <p-dropdown id="segment" formControlName="segment" [options]="segmentOptions" optionLabel="label"
+                    optionValue="value" [placeholder]="' '" class="w-full"
+                    [ngClass]="{'has-value': searchForm.get('segment')?.value}">
+                  </p-dropdown>
+                  <label for="segment" [ngClass]="{'label-float': searchForm.get('segment')?.value}">Segment</label>
+                </div>
+              </div>
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <p-dropdown id="state" formControlName="state" [options]="stateOptions" optionLabel="label"
+                    optionValue="value" [placeholder]="' '" class="w-full"
+                    [ngClass]="{'has-value': searchForm.get('state')?.value}">
+                  </p-dropdown>
+                  <label for="state" [ngClass]="{'label-float': searchForm.get('state')?.value}">State</label>
+                </div>
+              </div>
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <p-dropdown id="cocSeries" formControlName="cocSeries" [options]="cocSeriesOptions"
+                    optionLabel="label" optionValue="value" [placeholder]="' '" class="w-full"
+                    [ngClass]="{'has-value': searchForm.get('cocSeries')?.value}">
+                  </p-dropdown>
+                  <label for="cocSeries" [ngClass]="{'label-float': searchForm.get('cocSeries')?.value}">COC
+                    Series</label>
+                </div>
+              </div>
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <p-dropdown id="license" formControlName="license" [options]="licenseOptions" optionLabel="label"
+                    optionValue="value" placeholder="Select License" class="w-full">
+                  </p-dropdown>
+                  <label for="license">License</label>
+                </div>
+              </div>
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <p-dropdown id="product" formControlName="product" [options]="productOptions" optionLabel="label"
+                    optionValue="value" placeholder="Select Product" class="w-full">
+                  </p-dropdown>
+                  <label for="product">Product</label>
+                </div>
+              </div>
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <p-dropdown id="standard" formControlName="standard" [options]="standardOptions" optionLabel="label"
+                    optionValue="value" placeholder="Select Standard" class="w-full">
+                  </p-dropdown>
+                  <label for="standard">Standard</label>
+                </div>
+              </div>
+              <div class="flex justify-content-center col-3 p-2 mt-2">
+                <div class="p-float-label w-full">
+                  <p-dropdown id="planType" formControlName="planType" [options]="planTypeOptions" optionLabel="label"
+                    optionValue="value" placeholder="Select Plan Type" class="w-full">
+                  </p-dropdown>
+                  <label for="planType">Plan Type</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex">
+              <button type="button" pButton label="Clear" size="small" [outlined]="true" severity="warning"
+                class="flex-1 flex align-items-center justify-content-center m-2" (click)="onClear()">
+              </button>
+              <button type="submit" pButton label="Search" size="small" [outlined]="true"
+                class="flex-1 flex align-items-center justify-content-center m-2">
+              </button>
+            </div>
+          </form>
+
+          <div class="p-3">
+            <portfolio-editor-table [settings]="tableSettings" [records]="tableData" [loading]="loading"
+              [totalRecords]="totalRecords" [totalPages]="totalPages" [paginate]="true" [enableSort]="true"
+              [enableFilter]="true" [enableShowDeactivatedToggle]="false" [pageSize]="25" [rowsPerPage]="[10, 25, 50]"
+              (pageChange)="onPageChange($event)">
+            </portfolio-editor-table>
+          </div>
+        </div>
+
+        <p-toast [life]="5000" position="bottom-right"></p-toast>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="My Plans">
+      <h1>My Plans</h1>
+      <div class="p-card p-3 m-5">
+        <app-my-plans></app-my-plans>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</div>

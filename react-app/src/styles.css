@@ -1,0 +1,24 @@
+:root {
+  --app-primary: #003366;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Header mimic */
+.app-header {
+  background-color: var(--app-primary);
+  padding: 0.5rem 0.75rem;
+}
+.app-header img { height: 50px; width: 150px; }
+
+/* Utility spacing similar to Angular view */
+.page-container { padding: 1rem; }
+
+
